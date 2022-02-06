@@ -49,8 +49,31 @@
 			</div>
 
 		</div>
+
+		<div class="row" style="margin-top: 20px;">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>costs</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($total_price_attached_active_products_per_user as $user) { ?>
+						<tr>
+							<td><?php echo $user->username ?></td>
+							<td><?php echo $user->total ?></td>
+						</tr>
+					<?php } ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
+
+
 <?php
 	$this->load->view('partials/footer');
 ?>

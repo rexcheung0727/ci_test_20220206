@@ -36,6 +36,8 @@ class Admin_dashboard extends CI_Controller {
 		$tpaap = $this->product_list_model->total_price_attached_active_products();
 		$total_price_attached_active_products = $tpaap->total ? $tpaap->total : 0;
 
+		$total_price_attached_active_products_per_user = $this->product_list_model->total_price_attached_active_products_per_user();
+
 		$data = array(
 			'count_all' => $count_all,
 			'count_active' => $count_active,
@@ -43,7 +45,8 @@ class Admin_dashboard extends CI_Controller {
 			'count_active_products' => $count_active_products,
 			'count_active_products_not_belong_to_any_user' => $count_active_products_not_belong_to_any_user,
 			'count_attached_active_products' => $count_attached_active_products,
-			'total_price_attached_active_products' => $total_price_attached_active_products
+			'total_price_attached_active_products' => $total_price_attached_active_products,
+			'total_price_attached_active_products_per_user' => $total_price_attached_active_products_per_user
 		);
 		$this->load->view('admin/dashboard', $data);
 	}
