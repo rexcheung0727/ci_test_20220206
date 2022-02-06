@@ -75,4 +75,19 @@ class User_model extends CI_Model {
 		}
 	}
 
+	function count_all_users()
+	{
+		$this->db->where('is_admin', 0);
+		$this->db->from('users');
+		return $this->db->count_all_results();
+	}
+
+	function count_active_users()
+	{
+		$this->db->where('is_admin', 0);
+		$this->db->where('status', 1);
+		$this->db->where('verified', 1);
+		$this->db->from('users');
+		return $this->db->count_all_results();
+	}
 }

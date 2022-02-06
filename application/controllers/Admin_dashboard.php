@@ -18,7 +18,15 @@ class Admin_dashboard extends CI_Controller {
 
 	function index()
 	{
-		$this->load->view('admin/dashboard');
+		$this->load->model('user_model');
+		$count_all = $this->user_model->count_all_users();
+		$count_active= $this->user_model->count_active_users();
+
+		$data = array(
+			'count_all' => $count_all,
+			'count_active' => $count_active,
+		);
+		$this->load->view('admin/dashboard', $data);
 	}
 }
 
