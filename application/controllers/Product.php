@@ -132,4 +132,14 @@ class Product extends CI_Controller {
 		$this->product_model->delete($id);
 		redirect('/product');
 	}
+
+	public function status($id, $status)
+	{
+		$status = $status == 'enable' ? 1 : 0;
+		$data = array(
+			'status' => $status
+		);
+		$this->product_model->update($id, $data);
+		redirect('/product');
+	}
 }
