@@ -43,11 +43,11 @@ class Register extends CI_Controller {
 			if($id > 0) {
 				$config = array(
 					'protocol' => 'smtp',
-					'smtp_host' => 'mail.s1531.sureserver.com',
+					'smtp_host' => 'mailserverhost',
 					'smtp_port' => 465,
 					'smtp_crypto' => 'ssl',
-					'smtp_user' => 'no-reply@ebook.esmart.org.hk',
-					'smtp_pass' => 'fechk2021',
+					'smtp_user' => 'no-reply@mail.com',
+					'smtp_pass' => 'password',
 					'mailtype' => 'html',
 					'charset' => 'utf-8',
 					'crlf' => "\r\n",
