@@ -54,3 +54,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['admin'] = 'admin_dashboard';
+
+
+//product
+$route['product'] = 'product/index';
+$route['product/create'] = 'product/create';
+$route['product/edit'] = 'product/edit/$1';
+$route['product/store'] = 'product/store';
+$route['product/show'] = 'product/show/$1';
+$route['product/update/(:any)'] = 'product/update/$1';
+$route['product/status/(:num)/(:any)'] = 'product/status/$1/$2';
+$route['task/delete'] = 'product/delete';
+
