@@ -30,7 +30,11 @@ class Admin_dashboard extends CI_Controller {
 
 		$count_active_products_not_belong_to_any_user = $this->product_model->count_active_products_not_belong_to_any_user()->count;
 
-		$count_attached_active_products = $this->product_list_model->count_attached_active_products()->amount;
+		$caap = $this->product_list_model->count_attached_active_products();
+		$count_attached_active_products = $caap->amount ? $caap->amount : 0;
+
+		$tpaap = $this->product_list_model->total_price_attached_active_products();
+		$total_price_attached_active_products = $tpaap->total ? $tpaap->total : 0;
 
 		$data = array(
 			'count_all' => $count_all,
@@ -38,7 +42,8 @@ class Admin_dashboard extends CI_Controller {
 			'count_active_having_product_list' => $count_active_having_product_list,
 			'count_active_products' => $count_active_products,
 			'count_active_products_not_belong_to_any_user' => $count_active_products_not_belong_to_any_user,
-			'count_attached_active_products' => $count_attached_active_products
+			'count_attached_active_products' => $count_attached_active_products,
+			'total_price_attached_active_products' => $total_price_attached_active_products
 		);
 		$this->load->view('admin/dashboard', $data);
 	}
