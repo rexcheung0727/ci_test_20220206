@@ -24,6 +24,29 @@
 		</div>
 	</div>
 </div>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3>Products</h3>
+	</div>
+	<div class="panel-body">
+
+		<div class="row">
+			<div class="col-md-4 col-xs-12">
+				All Active Products: <span class="text-primary"><?=$count_active_products?></span>
+			</div>
+
+			<div class="col-md-4 col-xs-12">
+
+			</div>
+
+			<div class="col-md-4 col-xs-12">
+
+			</div>
+
+		</div>
+	</div>
+</div>
 <?php
 	$this->load->view('partials/footer');
 ?>

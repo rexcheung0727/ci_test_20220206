@@ -31,4 +31,11 @@ class Product_model extends CI_Model {
 		return $query->result();
 	}
 
+	public function count_active_products()
+	{
+		$this->db->where('status', 1);
+		$this->db->from('products');
+		return $this->db->count_all_results();
+	}
+
 }

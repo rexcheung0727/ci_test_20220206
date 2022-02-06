@@ -33,7 +33,7 @@ class User_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	function verify_email($key)
+	public function verify_email($key)
 	{
 		$this->db->where('activation_code', $key);
 		$this->db->where('verified', 0);
@@ -50,7 +50,7 @@ class User_model extends CI_Model {
 		}
 	}
 
-	function can_login($email, $password)
+	public function can_login($email, $password)
 	{
 		$this->db->where('email', $email);
 		$query = $this->db->get('users');
@@ -75,14 +75,14 @@ class User_model extends CI_Model {
 		}
 	}
 
-	function count_all_users()
+	public function count_all_users()
 	{
 		$this->db->where('is_admin', 0);
 		$this->db->from('users');
 		return $this->db->count_all_results();
 	}
 
-	function count_active_users()
+	public function count_active_users()
 	{
 		$this->db->where('is_admin', 0);
 		$this->db->where('status', 1);
@@ -91,7 +91,7 @@ class User_model extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
-	function count_active_users_having_product_list()
+	public function count_active_users_having_product_list()
 	{
 		$sql = "SELECT count(*) count FROM users
 				WHERE status = 1 AND verified = 1 AND id IN (
