@@ -7,8 +7,13 @@ class Product extends CI_Controller {
 		parent::__construct();
 		if (!$this->session->userdata('id')) {
 			redirect('login');
+		} else {
+			if(!$this->session->userdata('is_admin')) {
+				redirect('login');
+			}
 		}
 		$this->load->model('product_model');
+		$this->load->helper('date');
 	}
 
 	function index()
@@ -105,6 +110,9 @@ class Product extends CI_Controller {
 				$filename = $upload_data['file_name'];
 				$product['image'] = $filename;
 			}
+
+			$now = date('Y-m-d H:i:s');
+			$product['updated_at'] = $now;
 			$this->product_model->update($id, $product);
 		} else {
 			$errors = $this->form_validation->error_array();
@@ -136,8 +144,10 @@ class Product extends CI_Controller {
 	public function status($id, $status)
 	{
 		$status = $status == 'enable' ? 1 : 0;
+		$now = date('Y-m-d H:i:s');
 		$data = array(
-			'status' => $status
+			'status' => $status,
+			'updated_at' => $now
 		);
 		$this->product_model->update($id, $data);
 		redirect('/product');
