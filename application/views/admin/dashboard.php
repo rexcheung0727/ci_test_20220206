@@ -50,6 +50,13 @@
 
 		</div>
 
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Exchange rate based EUR</h3>
+				<p>USD: <span class="text-danger"><?php echo $exchange_rates->rates->USD?></span>  |  RON: <span class="text-danger"><?php echo $exchange_rates->rates->RON?></span></p>
+			</div>
+		</div>
+
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
 				<table class="table table-bordered">
