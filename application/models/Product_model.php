@@ -38,4 +38,16 @@ class Product_model extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
+	public function count_active_products_not_belong_to_any_user()
+	{
+		$sql = "SELECT count(*) count FROM products
+				WHERE status = 1 AND id NOT IN (
+					SELECT product_id 
+					FROM product_list 
+					WHERE qty > 0 
+					GROUP BY product_id
+    			)";
+		return $this->db->query($sql)->row();
+	}
+
 }

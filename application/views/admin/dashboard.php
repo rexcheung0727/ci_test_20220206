@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="col-md-4 col-xs-12">
-
+				Active Products not belong to any user: <span class="text-primary"><?=$count_active_products_not_belong_to_any_user?></span>
 			</div>
 
 			<div class="col-md-4 col-xs-12">

@@ -27,11 +27,14 @@ class Admin_dashboard extends CI_Controller {
 		$count_active_having_product_list = $this->user_model->count_active_users_having_product_list()->count;
 		$count_active_products = $this->product_model->count_active_products();
 
+		$count_active_products_not_belong_to_any_user = $this->product_model->count_active_products_not_belong_to_any_user()->count;
+
 		$data = array(
 			'count_all' => $count_all,
 			'count_active' => $count_active,
 			'count_active_having_product_list' => $count_active_having_product_list,
 			'count_active_products' => $count_active_products,
+			'count_active_products_not_belong_to_any_user' => $count_active_products_not_belong_to_any_user
 		);
 		$this->load->view('admin/dashboard', $data);
 	}
