@@ -7,6 +7,7 @@
 
 <body>
 <div class="container">
+
 	<br />
 	<h3>Welcome to CI_TESTING</h3>
 	<br />
@@ -38,6 +39,9 @@
 			</form>
 		</div>
 	</div>
+
 </div>
 </body>
 </html>
+
+
