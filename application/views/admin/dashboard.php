@@ -41,7 +41,7 @@
 			</div>
 
 			<div class="col-md-4 col-xs-12">
-
+				Amount of all active attached products <span class="text-primary"><?=$count_attached_active_products?></span>
 			</div>
 
 		</div>

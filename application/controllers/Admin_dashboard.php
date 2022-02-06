@@ -20,6 +20,7 @@ class Admin_dashboard extends CI_Controller {
 	{
 		$this->load->model('user_model');
 		$this->load->model('product_model');
+		$this->load->model('product_list_model');
 
 		$count_all = $this->user_model->count_all_users();
 		$count_active= $this->user_model->count_active_users();
@@ -29,12 +30,15 @@ class Admin_dashboard extends CI_Controller {
 
 		$count_active_products_not_belong_to_any_user = $this->product_model->count_active_products_not_belong_to_any_user()->count;
 
+		$count_attached_active_products = $this->product_list_model->count_attached_active_products()->amount;
+
 		$data = array(
 			'count_all' => $count_all,
 			'count_active' => $count_active,
 			'count_active_having_product_list' => $count_active_having_product_list,
 			'count_active_products' => $count_active_products,
-			'count_active_products_not_belong_to_any_user' => $count_active_products_not_belong_to_any_user
+			'count_active_products_not_belong_to_any_user' => $count_active_products_not_belong_to_any_user,
+			'count_attached_active_products' => $count_attached_active_products
 		);
 		$this->load->view('admin/dashboard', $data);
 	}

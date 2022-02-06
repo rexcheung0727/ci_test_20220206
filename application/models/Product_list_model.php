@@ -51,4 +51,14 @@ class Product_list_model extends CI_Model {
 		}
 	}
 
+	public function count_attached_active_products()
+	{
+		$sql = "SELECT SUM(qty) amount
+				FROM product_list pl 
+				LEFT JOIN products p ON pl.product_id = p.id
+				WHERE p.status = 1
+		";
+		return $this->db->query($sql)->row();
+	}
+
 }
