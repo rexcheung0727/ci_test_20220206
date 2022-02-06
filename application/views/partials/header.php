@@ -13,8 +13,10 @@
 				<a class="navbar-brand" href="#">WebSiteName</a>
 			</div>
 			<ul class="nav navbar-nav">
+			<?php if($this->session->userdata('is_admin')) { ?>
 				<li class="active"><a href="<?php echo base_url().'admin'?>">dashboard</a></li>
 				<li><a href="<?php echo base_url().'product'?>">Products</a></li>
+			<?php } ?>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<?php
