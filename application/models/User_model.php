@@ -90,4 +90,17 @@ class User_model extends CI_Model {
 		$this->db->from('users');
 		return $this->db->count_all_results();
 	}
+
+	function count_active_users_having_product_list()
+	{
+		$sql = "SELECT count(*) count FROM users
+				WHERE status = 1 AND verified = 1 AND id IN (
+					SELECT user_id 
+					FROM product_list pl
+					LEFT JOIN products p ON pl.product_id = p.id 
+					WHERE pl.qty > 0 AND p.status = 1
+					GROUP BY pl.user_id
+    			)";
+		return $this->db->query($sql)->row();
+	}
 }

@@ -10,13 +10,16 @@
 
 		<div class="row">
 			<div class="col-md-4 col-xs-12">
-				All Users <span class="text-primary"><?=$count_all?></span>
+				All Users: <span class="text-primary"><?=$count_all?></span>
 			</div>
 
 			<div class="col-md-4 col-xs-12">
-				Active & Verified Users <span class="text-primary"><?=$count_active?></span>
+				Active & Verified Users: <span class="text-primary"><?=$count_active?></span>
 			</div>
 
+			<div class="col-md-4 col-xs-12">
+				Active Users who have product: <span class="text-primary"><?=$count_active_having_product_list ?></span>
+			</div>
 
 		</div>
 	</div>

@@ -22,9 +22,11 @@ class Admin_dashboard extends CI_Controller {
 		$count_all = $this->user_model->count_all_users();
 		$count_active= $this->user_model->count_active_users();
 
+		$count_active_having_product_list = $this->user_model->count_active_users_having_product_list()->count;
 		$data = array(
 			'count_all' => $count_all,
 			'count_active' => $count_active,
+			'count_active_having_product_list' => $count_active_having_product_list
 		);
 		$this->load->view('admin/dashboard', $data);
 	}
