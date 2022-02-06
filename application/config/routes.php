@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin_dashboard';
 
 
-//product
+// Admin Product CRUD
 $route['product'] = 'product/index';
 $route['product/create'] = 'product/create';
 $route['product/edit'] = 'product/edit/$1';
@@ -66,3 +66,6 @@ $route['product/update/(:any)'] = 'product/update/$1';
 $route['product/status/(:num)/(:any)'] = 'product/status/$1/$2';
 $route['task/delete'] = 'product/delete';
 
+// User Product
+$route['product/(:num)'] = 'home/product/$1';
+$route['add-to-list'] = 'home/add';
